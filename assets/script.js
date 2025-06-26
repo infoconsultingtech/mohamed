@@ -62,3 +62,27 @@ document.addEventListener('DOMContentLoaded', function () {
     freeMode: true,
     freeModeMomentum: false,
   });
+
+  // Désactiver le clic droit
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
+
+// Désactiver le raccourci clavier pour copier (Ctrl+C / Cmd+C)
+document.addEventListener("keydown", function (e) {
+  // Pour Windows : Ctrl+C (code 67)
+  // Pour Mac : Meta+C (code 67)
+  if ((e.ctrlKey || e.metaKey) && e.keyCode === 67) {
+    e.preventDefault();
+  }
+});
+
+// Empêcher le glisser-déposer d'images ou de texte
+document.addEventListener("dragstart", function (e) {
+  e.preventDefault();
+});
+
+// Empêcher la sélection de texte
+document.addEventListener("selectstart", function (e) {
+  e.preventDefault();
+});
